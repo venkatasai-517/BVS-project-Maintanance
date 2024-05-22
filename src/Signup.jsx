@@ -109,7 +109,7 @@ function Signup() {
                 </div>
               )}
               {signupError && (
-                <div className="alert alert-danger mt-3">{loginError}</div>
+                <div className="alert alert-danger mt-3">{signupError}</div>
               )}
             </div>
           </div>

@@ -34,9 +34,13 @@ function App() {
       setRecords(originalRecords);
     } else {
       const newData = originalRecords.filter((row) => {
+        // Convert both project_name and client_name to lowercase for case-insensitive comparison
+        const projectNameLower = row.project_name.toLowerCase();
+        const clientNameLower = row.client_name.toLowerCase();
+        // Check if either project_name or client_name contains the search term
         return (
-          row.project_name.toLowerCase(),
-          row.status.toLowerCase().includes(searchTerm)
+          projectNameLower.includes(searchTerm) ||
+          clientNameLower.includes(searchTerm)
         );
       });
       setRecords(newData);
@@ -170,20 +174,24 @@ function App() {
       selector: (row) => row.action,
       cell: (row) => (
         <div className="row">
-          <button
-            className="btn btn-danger"
-            onClick={() => handleDeleteButtonClick(row)}
-          >
-            Delete
-          </button>
-          <button
-            className="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal1"
-            onClick={() => handleEditButtonClick(row)}
-          >
-            Edit
-          </button>
+          <div className="col">
+            <button className="btn btn-danger ">
+              <i
+                className="fa-solid fa-trash"
+                onClick={() => handleDeleteButtonClick(row)}
+              ></i>
+            </button>
+            <button
+              className="btn btn-primary ms-2"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal1"
+            >
+              <i
+                className="fa-solid fa-pen-to-square"
+                onClick={() => handleEditButtonClick(row)}
+              ></i>
+            </button>
+          </div>
         </div>
       ),
     },
@@ -223,6 +231,7 @@ function App() {
       </div>
 
       <DataTable
+        className="table table-bordered table-secondary"
         columns={columns}
         data={records}
         selectableRows
