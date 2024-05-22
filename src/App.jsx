@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import firebaseDB from "./firebase";
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
-// const data = [
-//   {
-//     date: "12/21/1221",
-//     status: "finished",
-//     project_name: "venkat",
-//     git_repo: "hello",
-//     git_colab: "hi",
-//     web_link: "jhjhjh",
-//   },
-// ];
+import "./Nav";
+
 const customStyle = {
   headRow: {
     style: {
@@ -27,29 +22,43 @@ const customStyle = {
 };
 
 function App() {
+  const [originalRecords, setOriginalRecords] = useState([]);
   const [records, setRecords] = useState([]);
   const [selectedRecord, setSelectedRecord] = useState(null);
 
   const handleFilter = (event) => {
-    const newData = records.filter((row) => {
-      return row.project_name
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase());
-    });
-    setRecords(newData);
+    const searchTerm = event.target.value.toLowerCase();
+
+    if (searchTerm === "") {
+      // If search input is empty, show all data
+      setRecords(originalRecords);
+    } else {
+      const newData = originalRecords.filter((row) => {
+        return (
+          row.project_name.toLowerCase(),
+          row.status.toLowerCase().includes(searchTerm)
+        );
+      });
+      setRecords(newData);
+    }
   };
+
   const initialFormState = {
     date: "",
     status: "",
     project_name: "",
+    client_name: "",
     git_repo: "",
     git_colab: "",
     web_link: "",
   };
+
   const [data1, setData1] = useState(initialFormState);
+
   const changeHandler = (e) => {
     setData1({ ...data1, [e.target.name]: e.target.value });
   };
+
   useEffect(() => {
     const fetchData = () => {
       firebaseDB.child("project").on("value", (snapshot) => {
@@ -59,6 +68,7 @@ function App() {
             id: key,
             ...data[key],
           }));
+          setOriginalRecords(dataArray);
           setRecords(dataArray);
         }
       });
@@ -69,37 +79,25 @@ function App() {
   }, []);
 
   const handleDeleteButtonClick = (row) => {
-    // Handle delete button click
-    // You can implement your delete logic here, such as deleting the row from Firebase
     try {
       firebaseDB.child(`project/${row.id}`).remove();
       console.log("Row deleted successfully!");
     } catch (error) {
       console.error("Error deleting row:", error);
     }
-    // After deleting the row, you might want to fetch the updated data again
   };
 
   const handleEditButtonClick = (row) => {
     setSelectedRecord(row);
     setData1(row);
   };
+
   const submitEditHandler = async (e) => {
     e.preventDefault();
     try {
       await firebaseDB.child(`project/${selectedRecord.id}`).update(data1);
       alert("Data updated successfully!");
-      setData1({
-        date: "",
-        status: "",
-        project_name: "",
-        git_repo: "",
-        git_colab: "",
-        web_link: "",
-      });
-      setSelectedRecord(null);
-      $("#exampleModal1").modal("hide"); // Close the modal
-      fetchData(); // Fetch updated data
+      setData1(initialFormState);
     } catch (err) {
       console.log("Error updating data: ", err);
     }
@@ -110,15 +108,27 @@ function App() {
     try {
       await firebaseDB.child("project").push(data1);
       alert("Data saved successfully!");
-      setData1(initialFormState); // Reset form state
+      setData1(initialFormState);
     } catch (err) {
       console.log("Error saving data: ", err);
     }
   };
+
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout error:", error.message);
+    }
+  };
+
   const columns = [
     {
       name: "DATE",
-
       selector: (row) => row.date,
       sortable: true,
     },
@@ -130,6 +140,11 @@ function App() {
     {
       name: "PROJECT_NAME",
       selector: (row) => row.project_name,
+      sortable: true,
+    },
+    {
+      name: "CLIENT_NAME",
+      selector: (row) => row.client_name,
       sortable: true,
     },
     {
@@ -156,7 +171,7 @@ function App() {
       cell: (row) => (
         <div className="row">
           <button
-            className="btn btn-danger "
+            className="btn btn-danger"
             onClick={() => handleDeleteButtonClick(row)}
           >
             Delete
@@ -169,25 +184,44 @@ function App() {
           >
             Edit
           </button>
-          ,
         </div>
       ),
     },
   ];
+
   return (
     <div className="container mt-3 ">
-      <div className="text-end">
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          Launch demo modal
-        </button>
-        <br></br>
-        <input type="text" placeholder="Search" onChange={handleFilter}></input>
+      <nav className="navbar bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand text-white ">BVS</a>
+          <form className="d-flex" role="search">
+            <button className="btn btn-outline-success" onClick={handleLogout}>
+              Logout
+            </button>
+          </form>
+        </div>
+      </nav>
+      <div className="row justify-content-end p-4">
+        <div className="col-auto">
+          <button
+            type="button"
+            className="btn btn-primary me-2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Add Projects
+          </button>
+        </div>
+        <div className="col-auto">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search"
+            onChange={handleFilter}
+          />
+        </div>
       </div>
+
       <DataTable
         columns={columns}
         data={records}
@@ -258,6 +292,17 @@ function App() {
                   />
                 </div>
                 <div className="col-md-4">
+                  <label className="form-label">Client Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="client_name"
+                    value={data1.client_name}
+                    onChange={changeHandler}
+                    required
+                  />
+                </div>
+                <div className="col-md-4">
                   <label className="form-label">Git Repo</label>
                   <input
                     type="url"
@@ -271,7 +316,7 @@ function App() {
                 <div className="col-md-4">
                   <label className="form-label">Git Colab</label>
                   <input
-                    type="url"
+                    type="text"
                     className="form-control"
                     name="git_colab"
                     value={data1.git_colab}
@@ -367,6 +412,17 @@ function App() {
                     required
                   />
                 </div>
+                <div className="col-md-4">
+                  <label className="form-label">Client Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="client_name"
+                    value={data1.client_name}
+                    onChange={changeHandler}
+                    required
+                  />
+                </div>
                 <div className="mb-3">
                   <label htmlFor="git_repo" className="form-label">
                     Git Repo
@@ -386,7 +442,7 @@ function App() {
                     Git Colab
                   </label>
                   <input
-                    type="url"
+                    type="text"
                     className="form-control"
                     id="git_colab"
                     name="git_colab"

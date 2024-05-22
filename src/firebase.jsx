@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import firebase from "firebase/compat/app";
 import "firebase/compat/database"; // Import the database module
-
+import { getAuth } from "firebase/auth/cordova";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB2oM1OZTmWU8nJCI3ClftF_g3GXa_WZ5k",
@@ -15,6 +15,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 var firebaseDB = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore;
+export const auth = getAuth();
+export { db };
 
 // Export the database reference for use in other parts of your application
 export default firebaseDB.database().ref();
