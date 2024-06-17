@@ -2,20 +2,22 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/database"; // Import the database module
 import { getAuth } from "firebase/auth/cordova";
+import { getStorage } from "firebase/storage";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB2oM1OZTmWU8nJCI3ClftF_g3GXa_WZ5k",
-  authDomain: "bvsprojects-d1ca9.firebaseapp.com",
-  projectId: "bvsprojects-d1ca9",
-  storageBucket: "bvsprojects-d1ca9.appspot.com",
-  messagingSenderId: "1035997656608",
-  appId: "1:1035997656608:web:d55789fcc775dd6c4c6e45",
-  measurementId: "G-H97J6C41GT",
+  apiKey: "AIzaSyBbkWAxTWNTDHDfVqBbXOW0_8UtbhGAgzE",
+  authDomain: "hostel-aab47.firebaseapp.com",
+  projectId: "hostel-aab47",
+  storageBucket: "hostel-aab47.appspot.com",
+  messagingSenderId: "183580222805",
+  appId: "1:183580222805:web:bbba1193174606891afbdc",
+  measurementId: "G-Y87BHYEC41",
 };
 
 // Initialize Firebase
 var firebaseDB = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore;
+export const imgDB = getStorage(firebaseDB);
 export const auth = getAuth();
 export { db };
 

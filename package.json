@@ -12,12 +12,13 @@
   "dependencies": {
     "boostrap": "^2.0.0",
     "bootstrap": "^5.3.3",
-    "firebase": "^10.12.1",
+    "firebase": "^10.12.2",
     "react": "^18.2.0",
     "react-data-table-component": "^7.6.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
