@@ -8,6 +8,7 @@ import { imgDB } from "./firebase";
 import "./Nav";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { Modal, Button } from "react-bootstrap"; // Assuming you're using Bootstrap for the modal
 
 const customStyle = {
   headRow: {
@@ -22,6 +23,8 @@ function App() {
   const [originalRecords, setOriginalRecords] = useState([]);
   const [records, setRecords] = useState([]);
   const [selectedRecord, setSelectedRecord] = useState(null);
+  const [showImageModal, setShowImageModal] = useState(false); // State for image modal
+  const [selectedImageUrl, setSelectedImageUrl] = useState(""); // State to store selected image URL
 
   const [data1, setData1] = useState({
     date: "",
@@ -159,6 +162,16 @@ function App() {
     }
   };
 
+  const handleImageClick = (row) => {
+    setSelectedImageUrl(row.room_img);
+    setShowImageModal(true);
+  };
+
+  const handleCloseImageModal = () => {
+    setShowImageModal(false);
+    setSelectedImageUrl("");
+  };
+
   const columns = [
     {
       name: "DATE OF JOIN",
@@ -287,6 +300,7 @@ function App() {
           src={row.room_img}
           alt="Room"
           style={{ width: "50px", height: "50px", objectFit: "cover" }}
+          onClick={() => handleImageClick(row)}
         />
       ),
     },
@@ -675,6 +689,19 @@ function App() {
           </div>
         </div>
       </div>
+      <Modal show={showImageModal} onHide={handleCloseImageModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Room Image</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={selectedImageUrl} alt="Room" style={{ width: "100%" }} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseImageModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
