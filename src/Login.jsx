@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
+import { login } from "./helper";
 
 function Login() {
   const [data, setData] = useState({
@@ -26,6 +27,7 @@ function Login() {
       setLoginSuccess(true);
       setLoginError("");
       console.log("Logged in successfully");
+      login();
       setTimeout(() => {
         navigate("/app"); // Navigate to the dashboard page after a delay
       }, 2000); // Adjust delay time as needed

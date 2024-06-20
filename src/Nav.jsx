@@ -5,20 +5,24 @@ import App from "./App";
 import Second from "./Double";
 import Thrible from "./Thrible";
 import Four from "./Four";
-
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 function Nav() {
   return (
     <Router>
       <Routes>
-        <Route index element={<Login />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<PublicRoute component={Login} />} />
+        <Route path="/login" element={<PublicRoute component={Login} />} />
 
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/signup"
+          elementelement={<PublicRoute component={Signup} />}
+        />
 
-        <Route path="/app" element={<App />} />
-        <Route path="/second" element={<Second />} />
-        <Route path="/thrible" element={<Thrible />} />
-        <Route path="/four" element={<Four />} />
+        <Route path="/app" element={<PrivateRoute component={App} />} />
+        <Route path="/second" element={<PrivateRoute component={Second} />} />
+        <Route path="/thrible" element={<PrivateRoute component={Thrible} />} />
+        <Route path="/four" element={<PrivateRoute component={Four} />} />
         {/* Add other routes here */}
       </Routes>
     </Router>

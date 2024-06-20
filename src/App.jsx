@@ -9,6 +9,7 @@ import "./Nav";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Modal, Button } from "react-bootstrap"; // Assuming you're using Bootstrap for the modal
+import { logout } from "./helper";
 
 const customStyle = {
   headRow: {
@@ -156,7 +157,8 @@ function App() {
     e.preventDefault();
     try {
       await signOut(auth);
-      navigate("/login");
+      logout();
+      navigate("/login", { replace: true });
     } catch (error) {
       console.error("Logout error:", error.message);
     }
