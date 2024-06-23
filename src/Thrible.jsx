@@ -137,12 +137,11 @@ function App() {
     } else {
       const newData = originalRecords.filter((row) => {
         const roomNumberLower = row.room_number.toLowerCase();
-        const studentNameLower = row.name.toLowerCase();
-        // const Student_name = row.Student_name.toLowerCase();
+        const statusLower = row.status.toLowerCase(); // const Student_name = row.Student_name.toLowerCase();
 
         return (
           roomNumberLower.includes(searchTerm) ||
-          studentNameLower.includes(searchTerm)
+          statusLower.includes(searchTerm)
         );
       });
       setRecords(newData);
@@ -191,11 +190,11 @@ function App() {
         );
       },
     },
-    {
-      name: "STUDENT_NAME",
-      selector: (row) => row.name,
-      sortable: true,
-    },
+    // {
+    //   name: "STUDENT_NAME",
+    //   selector: (row) => row.name,
+    //   sortable: true,
+    // },
     {
       name: "STATUS",
       selector: (row) => row.status,
@@ -377,6 +376,14 @@ function App() {
                   FOUR SHARE
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active  text-white badge"
+                  href="\studentdetails"
+                >
+                  STUDENT DETAILS
+                </a>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <button
@@ -398,7 +405,7 @@ function App() {
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            Add PG Students
+            Add AVAILABLE ROOMS
           </button>
         </div>
         <div className="col-auto">
@@ -452,7 +459,7 @@ function App() {
                     required
                   />
                 </div>
-                <div className="col-md-4">
+                {/* <div className="col-md-4">
                   <label className="form-label">Student_name</label>
                   <input
                     type="text"
@@ -462,7 +469,7 @@ function App() {
                     onChange={changeHandler}
                     required
                   />
-                </div>
+                </div> */}
                 <div className="col-md-4">
                   <label className="form-label">Status</label>
                   <select
@@ -593,7 +600,7 @@ function App() {
                     required
                   />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label className="form-label">Student Name</label>
                   <input
                     type="text"
@@ -603,7 +610,7 @@ function App() {
                     onChange={changeHandler}
                     required
                   />
-                </div>
+                </div> */}
                 <div className="mb-3">
                   <label htmlFor="status" className="form-label">
                     Status

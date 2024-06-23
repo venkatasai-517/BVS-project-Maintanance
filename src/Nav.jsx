@@ -5,6 +5,7 @@ import App from "./App";
 import Second from "./Double";
 import Thrible from "./Thrible";
 import Four from "./Four";
+import Student from "./Studentdetails";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 function Nav() {
@@ -23,6 +24,10 @@ function Nav() {
         <Route path="/second" element={<PrivateRoute component={Second} />} />
         <Route path="/thrible" element={<PrivateRoute component={Thrible} />} />
         <Route path="/four" element={<PrivateRoute component={Four} />} />
+        <Route
+          path="/studentdetails"
+          element={<PrivateRoute component={Student} />}
+        />
         {/* Add other routes here */}
       </Routes>
     </Router>
