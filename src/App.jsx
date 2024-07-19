@@ -11,6 +11,7 @@ import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Modal, Button } from "react-bootstrap"; // Assuming you're using Bootstrap for the modal
 import { logout } from "./helper";
+import AdvertisingComponents from "./AdvertisingComponents";
 
 const customStyle = {
   headRow: {
@@ -700,6 +701,8 @@ function App() {
           </div>
         </div>
       </div>
+      <AdvertisingComponents />
+
       <Modal show={showImageModal} onHide={handleCloseImageModal}>
         <Modal.Header closeButton>
           <Modal.Title>Room Image</Modal.Title>
