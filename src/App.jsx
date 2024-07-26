@@ -2,15 +2,14 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import firebaseDB from "./firebase";
-import { auth } from "./firebase";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+
 import { imgDB } from "./firebase";
 import "./Nav";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Modal, Button } from "react-bootstrap"; // Assuming you're using Bootstrap for the modal
-import { logout } from "./helper";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const customStyle = {
   headRow: {
@@ -27,6 +26,7 @@ function App() {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [showImageModal, setShowImageModal] = useState(false); // State for image modal
   const [selectedImageUrl, setSelectedImageUrl] = useState(""); // State to store selected image URL
+  // const [notifications, setNotifications] = useState([]); // State to store notifications
 
   const [data1, setData1] = useState({
     date: "",
@@ -35,12 +35,11 @@ function App() {
     room_number: "",
     floor_number: "",
     price: "",
+    payment: "",
     room_img: "",
     due_date: "",
   });
   const [img, setImg] = useState(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = () => {
@@ -53,19 +52,82 @@ function App() {
           }));
           setOriginalRecords(dataArray);
           setRecords(dataArray);
+          checkDueDates(dataArray);
         }
       });
     };
-
+    // Listen for new data being added
+    firebaseDB.child("project").on("child_added", (snapshot) => {
+      const newData = snapshot.val();
+      if (newData) {
+        toast.success("New data added!");
+      }
+    });
     fetchData();
     return () => firebaseDB.child("project").off();
   }, []);
+
   const calculateDueDate = (dateOfJoin) => {
-    // Assuming due date is 7 days after the date of join
     const dueDate = new Date(dateOfJoin);
-    dueDate.setDate(dueDate.getDate() + 30); // Adjust as needed
+    dueDate.setMonth(dueDate.getMonth() + 1); // Next month's due date
 
     return dueDate.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+  };
+
+  const handlePayment = async () => {
+    // Implement your payment logic here (this is a placeholder)
+    // For demonstration, we assume a successful payment and update due date
+
+    try {
+      // Calculate new due date
+      const newDueDate = calculateDueDate(selectedRecord.date);
+
+      // Update Firebase record with new due date
+      await firebaseDB.child(`project/${selectedRecord.id}`).update({
+        ...selectedRecord,
+        due_date: newDueDate,
+      });
+
+      // Notify user or update UI as needed
+      toast.success("Payment successful! Due date updated.");
+    } catch (error) {
+      console.error("Error handling payment:", error);
+      toast.error("Payment failed. Please try again.");
+    }
+  };
+
+  const checkDueDates = (records) => {
+    const today = new Date();
+    const newNotifications = [];
+    records.forEach((record) => {
+      const dueDate = new Date(record.due_date);
+      const differenceInDays = Math.floor(
+        (dueDate - today) / (1000 * 60 * 60 * 24)
+      );
+
+      if (differenceInDays < 0) {
+        newNotifications.push({
+          message: `Alert: Room ${record.room_number} is overdue by ${Math.abs(
+            differenceInDays
+          )} days!`,
+          date: record.due_date,
+        });
+        toast.error(
+          `Alert: Room ${record.room_number} is overdue by ${Math.abs(
+            differenceInDays
+          )} days!`
+        );
+      } else if (differenceInDays <= 3) {
+        newNotifications.push({
+          message: `Reminder: Room ${record.room_number} is due in ${differenceInDays} days!`,
+          date: record.due_date,
+        });
+        toast.warn(
+          `Reminder: Room ${record.room_number} is due in ${differenceInDays} days!`
+        );
+      }
+    });
+    // setNotifications(newNotifications);
   };
 
   const handleFileUpload = async (file) => {
@@ -89,6 +151,7 @@ function App() {
       room_number: "",
       floor_number: "",
       price: "",
+      payment: "",
       room_img: "",
     });
     setImg(null);
@@ -110,6 +173,8 @@ function App() {
         room_number: "",
         floor_number: "",
         price: "",
+        payment: "",
+
         room_img: "",
       });
       setSelectedRecord(null);
@@ -154,16 +219,16 @@ function App() {
     }
   };
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    try {
-      await signOut(auth);
-      logout();
-      navigate("/login", { replace: true });
-    } catch (error) {
-      console.error("Logout error:", error.message);
-    }
-  };
+  // const handleLogout = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await signOut(auth);
+  //     logout();
+  //     navigate("/login", { replace: true });
+  //   } catch (error) {
+  //     console.error("Logout error:", error.message);
+  //   }
+  // };
 
   const handleImageClick = (row) => {
     setSelectedImageUrl(row.room_img);
@@ -295,6 +360,11 @@ function App() {
       },
     },
     {
+      name: "PAYMENT",
+      selector: (row) => row.payment,
+      sortable: true,
+    },
+    {
       name: "ROOM IMG",
       selector: (row) => row.room_img,
       sortable: true,
@@ -349,7 +419,7 @@ function App() {
 
   return (
     <div className="container mt-3 ">
-      <nav className="navbar navbar-expand-lg bg-dark">
+      {/* <nav className="navbar navbar-expand-lg bg-dark">
         <div className="container-fluid ">
           <a className="navbar-brand  text-white badge text-bg-dark" href="#">
             HOSTEL MANAGMENT
@@ -367,6 +437,24 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-4 ms-5">
+              <li className="nav-item  text-white">
+                <a
+                  className="nav-link active  text-white badge "
+                  aria-current="page"
+                  href="\dashboard"
+                >
+                  DASHBOARD
+                </a>
+              </li>
+              <li className="nav-item  text-white">
+                <a
+                  className="nav-link active  text-white badge "
+                  aria-current="page"
+                  href="\rooms"
+                >
+                  Rooms
+                </a>
+              </li>
               <li className="nav-item  text-white">
                 <a
                   className="nav-link active  text-white badge text-bg-secondary"
@@ -402,6 +490,24 @@ function App() {
                   STUDENT DETAILS
                 </a>
               </li>
+              <li className="nav-item dropdown">
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Messages
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {notifications.length === 0 ? (
+                      <Dropdown.Item>No new messages</Dropdown.Item>
+                    ) : (
+                      notifications.map((notification, index) => (
+                        <Dropdown.Item key={index}>
+                          {notification.message}
+                        </Dropdown.Item>
+                      ))
+                    )}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <button
@@ -413,8 +519,8 @@ function App() {
             </form>
           </div>
         </div>
-      </nav>
-
+      </nav> */}
+      <ToastContainer />
       <div className="row justify-content-end p-4">
         <div className="col-auto">
           <button
@@ -555,6 +661,32 @@ function App() {
                     />
                   </div>
                 </div>
+                <div className="col-md-4">
+                  <label className="form-label">payment status</label>
+                  <select
+                    className="form-select"
+                    name="payment"
+                    value={data1.payment}
+                    onChange={changeHandler}
+                    required
+                  >
+                    <option value="" disabled>
+                      Choose...
+                    </option>
+                    <option className="badge text-bg-success" value="payed">
+                      payed
+                    </option>
+                    <option className="badge text-bg-danger" value="Not Payed">
+                      Not Payed
+                    </option>
+                    <option
+                      className="badge text-bg-warning"
+                      value="Under Process"
+                    >
+                      Under Process
+                    </option>
+                  </select>
+                </div>
                 {/* <div className="col-md-4">
                   <label className="form-label">Git Colab</label>
                   <input
@@ -683,6 +815,32 @@ function App() {
                     required
                   />
                 </div>
+                <div className="col-md-4">
+                  <label className="form-label">payment status</label>
+                  <select
+                    className="form-select"
+                    name="payment"
+                    value={data1.payment}
+                    onChange={changeHandler}
+                    required
+                  >
+                    <option value="" disabled>
+                      Choose...
+                    </option>
+                    <option className="badge text-bg-success" value="payed">
+                      payed
+                    </option>
+                    <option className="badge text-bg-danger" value="Not Payed">
+                      Not Payed
+                    </option>
+                    <option
+                      className="badge text-bg-warning"
+                      value="Under Process"
+                    >
+                      Under Process
+                    </option>
+                  </select>
+                </div>
                 <div className="mb-3">
                   <label className="form-label">Room Image</label>
                   <input
@@ -691,6 +849,13 @@ function App() {
                     onChange={(event) => setImg(event.target.files[0])}
                   />
                 </div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handlePayment}
+                >
+                  Pay Rent and Update Due Date
+                </button>
 
                 <button type="submit" className="btn btn-primary">
                   Save Changes
