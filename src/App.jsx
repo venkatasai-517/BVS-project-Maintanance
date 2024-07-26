@@ -8,14 +8,11 @@ import "./Nav";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Modal, Button } from "react-bootstrap"; // Assuming you're using Bootstrap for the modal
-<<<<<<< HEAD
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-=======
-import { logout } from "./helper";
-import AdvertisingComponents from "./AdvertisingComponents";
->>>>>>> f561941af3f9e40ef0b6afb77d23b41a888414d2
 
+import AdvertisingComponents from "./AdvertisingComponents";
 const customStyle = {
   headRow: {
     style: {
