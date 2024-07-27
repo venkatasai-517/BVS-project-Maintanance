@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import firebaseDB from "./firebase";
 import { Link } from "react-router-dom";
+import { se } from "date-fns/locale/se";
 
 const Rooms = () => {
   const [totalBeds, setTotalBeds] = useState(0);
   const [vacatedBeds, setVacatedBeds] = useState(0);
   const [joined, setJoined] = useState(0);
+  // const [duedate, setDuedate] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +38,7 @@ const Rooms = () => {
         let totalBedsCount = 0;
         let vacatedBedsCount = 0;
         let joinedBedCount = 0;
+        // let duedatebed = 0;
 
         for (const roomId of roomIds) {
           const roomSnapshot = await firebaseDB.child(roomId).once("value");
@@ -53,12 +56,17 @@ const Rooms = () => {
               (bed) => bed.status === "Joined"
             ).length;
             joinedBedCount += joinedCount;
+            // const duedate = Object.values(roomData).filter(
+            //   (bed) => bed.due_date === "badge bg-danger"
+            // ).length;
+            // duedatebed += duedate;
           }
         }
 
         setTotalBeds(totalBedsCount);
         setVacatedBeds(vacatedBedsCount);
         setJoined(joinedBedCount);
+        // setDuedate(duedatebed);
       } catch (error) {
         console.error("Error fetching bed data:", error);
       }
@@ -116,6 +124,16 @@ const Rooms = () => {
               </div>
             </div>
           </div>
+          {/* <div className="col-12 col-md-3">
+            <div className="p-3">
+              <div className="card">
+                <div className="card-body bg-success text-white">
+                  <h5>Due Beds</h5>
+                  <h1>{duedate}</h1>
+                </div>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
     </>
