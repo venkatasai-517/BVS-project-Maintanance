@@ -225,21 +225,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/g1" style={{ textDecoration: "none" }}>
                   <h5>G1</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -251,21 +252,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/g2">
                   <h5>G2</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {g2Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {g2Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -277,21 +279,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a1" style={{ textDecoration: "none" }}>
                   <h5>A1</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a1Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a1Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -328,21 +331,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a3" style={{ textDecoration: "none" }}>
                   <h5>A3</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a3Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a3Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -353,21 +357,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a4" style={{ textDecoration: "none" }}>
                   <h5>A4</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a4Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a4Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -378,21 +383,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a5" style={{ textDecoration: "none" }}>
                   <h5>A5</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a5Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a5Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -403,21 +409,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a6" style={{ textDecoration: "none" }}>
                   <h5>A6</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a6Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a6Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -428,21 +435,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/a7" style={{ textDecoration: "none" }}>
                   <h5>A7</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {a7Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {a7Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -453,21 +461,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b1" style={{ textDecoration: "none" }}>
                   <h5>B1</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b1Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b1Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -478,21 +487,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b2" style={{ textDecoration: "none" }}>
                   <h5>B2</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b2Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b2Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -503,21 +513,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b3" style={{ textDecoration: "none" }}>
                   <h5>B3</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b3Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b3Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -528,21 +539,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b4" style={{ textDecoration: "none" }}>
                   <h5>B4</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b4Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b4Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -553,21 +565,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b5" style={{ textDecoration: "none" }}>
                   <h5>B5</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b5Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b5Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -578,21 +591,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/b6" style={{ textDecoration: "none" }}>
                   <h5>B6</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {b6Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {b6Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -603,21 +617,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/c1" style={{ textDecoration: "none" }}>
                   <h5>C1</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {c1Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {c1Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -628,21 +643,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/c2" style={{ textDecoration: "none" }}>
                   <h5>C2</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {c2Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {c2Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -653,21 +669,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/c3" style={{ textDecoration: "none" }}>
                   <h5>C3</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {c3Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {c3Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -678,21 +695,22 @@ const Room_no = () => {
               <div className="card-body">
                 <Link to="/c4" style={{ textDecoration: "none" }}>
                   <h5>C4</h5>
+
+                  <div className="d-flex flex-wrap mb-3">
+                    {c4Beds.map((bed) => (
+                      <i
+                        key={bed.id}
+                        className={`material-icons ${getIconColorClass(
+                          bed.status
+                        )} mx-1 my-1`}
+                        title={`Room ${bed.room_number}: ${bed.status}`}
+                        style={{ fontSize: "24px" }} // Adjust icon size as needed
+                      >
+                        localhotel
+                      </i>
+                    ))}
+                  </div>
                 </Link>
-                <div className="d-flex flex-wrap mb-3">
-                  {c4Beds.map((bed) => (
-                    <i
-                      key={bed.id}
-                      className={`material-icons ${getIconColorClass(
-                        bed.status
-                      )} mx-1 my-1`}
-                      title={`Room ${bed.room_number}: ${bed.status}`}
-                      style={{ fontSize: "24px" }} // Adjust icon size as needed
-                    >
-                      localhotel
-                    </i>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
