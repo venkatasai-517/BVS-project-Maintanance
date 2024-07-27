@@ -217,7 +217,7 @@ const Room_no = () => {
   };
 
   return (
-    <div className="container m-5">
+    <div className="container mb-5">
       <div className="row g-3">
         <div className="col-12 col-md-3">
           <div className="p-3">
