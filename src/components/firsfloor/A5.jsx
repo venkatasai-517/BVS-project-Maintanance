@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import firebaseDB from "../firebase";
+import firebaseDB from "../../firebase";
 import { v4 } from "uuid";
-import { imgDB } from "../firebase";
+import { imgDB } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-function Athree() {
+function Afive() {
   const [getData, setGetData] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ function Athree() {
 
   useEffect(() => {
     const fetchData = () => {
-      firebaseDB.child("A3").on("value", (details) => {
+      firebaseDB.child("A5").on("value", (details) => {
         if (details.val()) {
           setGetData(details.val());
         }
@@ -38,7 +38,7 @@ function Athree() {
     fetchData();
 
     // Cleanup subscription on unmount
-    return () => firebaseDB.child("A3").off();
+    return () => firebaseDB.child("A5").off();
   }, []);
   const handleFileUpload = async (file) => {
     if (!file) return;
@@ -81,8 +81,8 @@ function Athree() {
     }
 
     try {
-      const snapshot = await firebaseDB.child("A3").get();
-      if (snapshot.exists() && Object.keys(snapshot.val()).length >= 2) {
+      const snapshot = await firebaseDB.child("A5").get();
+      if (snapshot.exists() && Object.keys(snapshot.val()).length >= 3) {
         alert(
           "You cannot add more than 3 records. because this room contains 3 Beds only so please check the Beds."
         );
@@ -91,7 +91,7 @@ function Athree() {
 
       const url = await handleFileUpload(img);
       const formDataWithImgUrl = { ...data1, student_img: url };
-      await firebaseDB.child("A3").push(formDataWithImgUrl);
+      await firebaseDB.child("A5").push(formDataWithImgUrl);
       alert("Data saved successfully!");
 
       // Clear form fields and state after successful submission
@@ -142,7 +142,7 @@ function Athree() {
         updatedData.student_img = url;
       }
 
-      await firebaseDB.child(`A3/${selectedRecord}`).update(updatedData);
+      await firebaseDB.child(`A5/${selectedRecord}`).update(updatedData);
       alert("Data updated successfully!");
 
       // Clear form fields and state after successful submission
@@ -171,7 +171,7 @@ function Athree() {
   const handleDeleteButtonClick = (key) => {
     if (window.confirm("Do you want to delete?")) {
       try {
-        firebaseDB.child(`A3/${key}`).remove();
+        firebaseDB.child(`A5/${key}`).remove();
         alert("Row deleted successfully!");
       } catch (error) {
         console.error("Error deleting row:", error);
@@ -718,4 +718,4 @@ function Athree() {
   );
 }
 
-export default Athree;
+export default Afive;

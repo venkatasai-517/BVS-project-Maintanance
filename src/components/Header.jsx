@@ -45,7 +45,7 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-4 ms-5">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a
                 id="dashboard"
                 className={`nav-link badge ${
@@ -59,7 +59,7 @@ const Header = () => {
               >
                 DASHBOARD
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a
                 id="rooms"
@@ -72,10 +72,10 @@ const Header = () => {
                 href="/rooms"
                 onClick={() => handleSetActive("rooms")}
               >
-                Rooms
+                ROOMS
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a
                 id="single-share"
                 className={`nav-link badge ${
@@ -145,7 +145,7 @@ const Header = () => {
               >
                 STUDENT DETAILS
               </a>
-            </li>
+            </li> */}
           </ul>
           <form className="d-flex" role="search">
             <button

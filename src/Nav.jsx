@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
-import App from "./App";
-import Second from "./Double";
-import Thrible from "./Thrible";
-import Four from "./Four";
-import Student from "./Studentdetails";
+// import App from "./App";
+// import Second from "./Double";
+// import Thrible from "./Thrible";
+// import Four from "./Four";
+// import Student from "./Studentdetails";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import Dashboard from "./components/Dashboard";
@@ -13,9 +13,23 @@ import Room_no from "./components/Room_no";
 import G1 from "./components/G1";
 import G2 from "./components/G2.jsx";
 import Rooms from "./Rooms";
-import A1 from "./components/A1.jsx";
-import A2 from "./components/A2.jsx";
-import A3 from "./components/A3.jsx";
+import A1 from "./components/firsfloor/A1.jsx";
+import A2 from "./components/firsfloor/A2.jsx";
+import A3 from "./components/firsfloor/A3.jsx";
+import A4 from "./components/firsfloor/A4.jsx";
+import A5 from "./components/firsfloor/A5.jsx";
+import A6 from "./components/firsfloor/A6.jsx";
+import A7 from "./components/firsfloor/A7.jsx";
+import B1 from "./components/secondfloor/B1.jsx";
+import B2 from "./components/secondfloor/B2.jsx";
+import B3 from "./components/secondfloor/B3.jsx";
+import B4 from "./components/secondfloor/B4.jsx";
+import B5 from "./components/secondfloor/B5.jsx";
+import B6 from "./components/secondfloor/B6.jsx";
+import C1 from "./components/thirdfloor/C1.jsx";
+import C2 from "./components/thirdfloor/C2.jsx";
+import C3 from "./components/thirdfloor/C3.jsx";
+import C4 from "./components/thirdfloor/C4.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -40,14 +54,28 @@ function Nav() {
         <Route path="/a1" element={<PrivateRoute component={A1} />} />
         <Route path="/a2" element={<PrivateRoute component={A2} />} />
         <Route path="/a3" element={<PrivateRoute component={A3} />} />
-        <Route path="/app" element={<PrivateRoute component={App} />} />
+        <Route path="/a4" element={<PrivateRoute component={A4} />} />
+        <Route path="/a5" element={<PrivateRoute component={A5} />} />
+        <Route path="/a6" element={<PrivateRoute component={A6} />} />
+        <Route path="/a7" element={<PrivateRoute component={A7} />} />
+        <Route path="/b1" element={<PrivateRoute component={B1} />} />
+        <Route path="/b2" element={<PrivateRoute component={B2} />} />
+        <Route path="/b3" element={<PrivateRoute component={B3} />} />
+        <Route path="/b4" element={<PrivateRoute component={B4} />} />
+        <Route path="/b5" element={<PrivateRoute component={B5} />} />
+        <Route path="/b6" element={<PrivateRoute component={B6} />} />
+        <Route path="/c1" element={<PrivateRoute component={C1} />} />
+        <Route path="/c2" element={<PrivateRoute component={C2} />} />
+        <Route path="/c3" element={<PrivateRoute component={C3} />} />
+        <Route path="/c4" element={<PrivateRoute component={C4} />} />
+        {/* <Route path="/app" element={<PrivateRoute component={App} />} />
         <Route path="/second" element={<PrivateRoute component={Second} />} />
         <Route path="/thrible" element={<PrivateRoute component={Thrible} />} />
         <Route path="/four" element={<PrivateRoute component={Four} />} />
         <Route
           path="/studentdetails"
-          element={<PrivateRoute component={Student} />}
-        />
+          element={<PrivateRoute component={Student} />} */}
+
         {/* Add other routes here */}
       </Routes>
       <Footer />

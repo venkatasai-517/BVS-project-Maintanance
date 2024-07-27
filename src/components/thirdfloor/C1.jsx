@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import firebaseDB from "../firebase";
+import firebaseDB from "../../firebase";
 import { v4 } from "uuid";
-import { imgDB } from "../firebase";
+import { imgDB } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-function Aone() {
+function Cone() {
   const [getData, setGetData] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ function Aone() {
 
   useEffect(() => {
     const fetchData = () => {
-      firebaseDB.child("A1").on("value", (details) => {
+      firebaseDB.child("C1").on("value", (details) => {
         if (details.val()) {
           setGetData(details.val());
         }
@@ -38,7 +38,7 @@ function Aone() {
     fetchData();
 
     // Cleanup subscription on unmount
-    return () => firebaseDB.child("A1").off();
+    return () => firebaseDB.child("C1").off();
   }, []);
   const handleFileUpload = async (file) => {
     if (!file) return;
@@ -81,17 +81,17 @@ function Aone() {
     }
 
     try {
-      const snapshot = await firebaseDB.child("A1").get();
-      if (snapshot.exists() && Object.keys(snapshot.val()).length >= 6) {
+      const snapshot = await firebaseDB.child("C1").get();
+      if (snapshot.exists() && Object.keys(snapshot.val()).length >= 1) {
         alert(
-          "You cannot add more than 6 records. because this room contains 6 Beds only so please check the Beds."
+          "You cannot add more than 1 records. because this room contains 1 Beds only so please check the Beds."
         );
         return;
       }
 
       const url = await handleFileUpload(img);
       const formDataWithImgUrl = { ...data1, student_img: url };
-      await firebaseDB.child("A1").push(formDataWithImgUrl);
+      await firebaseDB.child("C1").push(formDataWithImgUrl);
       alert("Data saved successfully!");
 
       // Clear form fields and state after successful submission
@@ -142,7 +142,7 @@ function Aone() {
         updatedData.student_img = url;
       }
 
-      await firebaseDB.child(`A1/${selectedRecord}`).update(updatedData);
+      await firebaseDB.child(`C1/${selectedRecord}`).update(updatedData);
       alert("Data updated successfully!");
 
       // Clear form fields and state after successful submission
@@ -171,7 +171,7 @@ function Aone() {
   const handleDeleteButtonClick = (key) => {
     if (window.confirm("Do you want to delete?")) {
       try {
-        firebaseDB.child(`A1/${key}`).remove();
+        firebaseDB.child(`C1/${key}`).remove();
         alert("Row deleted successfully!");
       } catch (error) {
         console.error("Error deleting row:", error);
@@ -715,4 +715,4 @@ function Aone() {
   );
 }
 
-export default Aone;
+export default Cone;

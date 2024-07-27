@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import firebaseDB from "../firebase";
+import firebaseDB from "../../firebase";
 import { v4 } from "uuid";
-import { imgDB } from "../firebase";
+import { imgDB } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-function Atwo() {
+function Btwo() {
   const [getData, setGetData] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ function Atwo() {
 
   useEffect(() => {
     const fetchData = () => {
-      firebaseDB.child("A2").on("value", (details) => {
+      firebaseDB.child("B2").on("value", (details) => {
         if (details.val()) {
           setGetData(details.val());
         }
@@ -38,7 +38,7 @@ function Atwo() {
     fetchData();
 
     // Cleanup subscription on unmount
-    return () => firebaseDB.child("A2").off();
+    return () => firebaseDB.child("B2").off();
   }, []);
   const handleFileUpload = async (file) => {
     if (!file) return;
@@ -81,7 +81,7 @@ function Atwo() {
     }
 
     try {
-      const snapshot = await firebaseDB.child("A2").get();
+      const snapshot = await firebaseDB.child("B2").get();
       if (snapshot.exists() && Object.keys(snapshot.val()).length >= 6) {
         alert(
           "You cannot add more than 6 records. because this room contains 6 Beds only so please check the Beds."
@@ -91,7 +91,7 @@ function Atwo() {
 
       const url = await handleFileUpload(img);
       const formDataWithImgUrl = { ...data1, student_img: url };
-      await firebaseDB.child("A2").push(formDataWithImgUrl);
+      await firebaseDB.child("B2").push(formDataWithImgUrl);
       alert("Data saved successfully!");
 
       // Clear form fields and state after successful submission
@@ -142,7 +142,7 @@ function Atwo() {
         updatedData.student_img = url;
       }
 
-      await firebaseDB.child(`A2/${selectedRecord}`).update(updatedData);
+      await firebaseDB.child(`B2/${selectedRecord}`).update(updatedData);
       alert("Data updated successfully!");
 
       // Clear form fields and state after successful submission
@@ -171,7 +171,7 @@ function Atwo() {
   const handleDeleteButtonClick = (key) => {
     if (window.confirm("Do you want to delete?")) {
       try {
-        firebaseDB.child(`A2/${key}`).remove();
+        firebaseDB.child(`B2/${key}`).remove();
         alert("Row deleted successfully!");
       } catch (error) {
         console.error("Error deleting row:", error);
@@ -715,4 +715,4 @@ function Atwo() {
   );
 }
 
-export default Atwo;
+export default Btwo;
