@@ -250,7 +250,7 @@ const Room_no = () => {
           <div className="p-3">
             <div className="card">
               <div className="card-body">
-                <Link to="/g2">
+                <Link to="/g2" style={{ textDecoration: "none" }}>
                   <h5>G2</h5>
 
                   <div className="d-flex flex-wrap mb-3">
