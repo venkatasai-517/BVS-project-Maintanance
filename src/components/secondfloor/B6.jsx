@@ -262,7 +262,7 @@ function Bsix() {
               const item = getData[key];
               return (
                 <div className="col-sm-6 col-md-4" key={key}>
-                  <div className="card mb-4">
+                  <div className="card shadow-lg mb-5 bg-body rounded border-0">
                     <img
                       src={item.student_img}
                       className="card-img-top fixed-size-img"
@@ -391,7 +391,7 @@ function Bsix() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Add Customer
+                Add Tenent
               </h1>
               <button
                 type="button"
@@ -530,7 +530,7 @@ function Bsix() {
                   />
                 </div> */}
                 <div className="col-md-4">
-                  <label className="form-label">Student_img</label>
+                  <label className="form-label">Tenent</label>
                   <input
                     type="file"
                     name="student_img"
@@ -705,7 +705,7 @@ function Bsix() {
                 </div>
 
                 <div className="col-md-4">
-                  <label className="form-label">Student_img</label>
+                  <label className="form-label">Tenent</label>
                   <input
                     type="file"
                     name="student_img"

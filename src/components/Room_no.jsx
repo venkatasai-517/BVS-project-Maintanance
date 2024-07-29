@@ -221,7 +221,7 @@ const Room_no = () => {
       <div className="row g-3">
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/g1" style={{ textDecoration: "none" }}>
                   <h5>G1</h5>
@@ -248,7 +248,7 @@ const Room_no = () => {
 
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/g2" style={{ textDecoration: "none" }}>
                   <h5>G2</h5>
@@ -275,7 +275,7 @@ const Room_no = () => {
 
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a1" style={{ textDecoration: "none" }}>
                   <h5>A1</h5>
@@ -302,7 +302,7 @@ const Room_no = () => {
 
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a2" style={{ textDecoration: "none" }}>
                   <h5>A2</h5>
@@ -327,7 +327,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a3" style={{ textDecoration: "none" }}>
                   <h5>A3</h5>
@@ -353,7 +353,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a4" style={{ textDecoration: "none" }}>
                   <h5>A4</h5>
@@ -379,7 +379,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a5" style={{ textDecoration: "none" }}>
                   <h5>A5</h5>
@@ -405,7 +405,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a6" style={{ textDecoration: "none" }}>
                   <h5>A6</h5>
@@ -431,7 +431,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/a7" style={{ textDecoration: "none" }}>
                   <h5>A7</h5>
@@ -457,7 +457,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b1" style={{ textDecoration: "none" }}>
                   <h5>B1</h5>
@@ -483,7 +483,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b2" style={{ textDecoration: "none" }}>
                   <h5>B2</h5>
@@ -509,7 +509,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b3" style={{ textDecoration: "none" }}>
                   <h5>B3</h5>
@@ -535,7 +535,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b4" style={{ textDecoration: "none" }}>
                   <h5>B4</h5>
@@ -561,7 +561,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b5" style={{ textDecoration: "none" }}>
                   <h5>B5</h5>
@@ -587,7 +587,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/b6" style={{ textDecoration: "none" }}>
                   <h5>B6</h5>
@@ -613,7 +613,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/c1" style={{ textDecoration: "none" }}>
                   <h5>C1</h5>
@@ -639,7 +639,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/c2" style={{ textDecoration: "none" }}>
                   <h5>C2</h5>
@@ -665,7 +665,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/c3" style={{ textDecoration: "none" }}>
                   <h5>C3</h5>
@@ -691,7 +691,7 @@ const Room_no = () => {
         </div>
         <div className="col-12 col-md-3">
           <div className="p-3">
-            <div className="card">
+            <div className="card shadow-lg mb-5 bg-body rounded border-0">
               <div className="card-body">
                 <Link to="/c4" style={{ textDecoration: "none" }}>
                   <h5>C4</h5>

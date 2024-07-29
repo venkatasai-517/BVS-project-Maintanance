@@ -81,7 +81,7 @@ const Rooms = () => {
         <div className="row g-2">
           <div className="col-12 col-md-3">
             <div className="p-3">
-              <div className="card">
+              <div className="card shadow-lg mb-5 bg-body rounded border-0">
                 <div className="card-body bg-body text-danger">
                   <Link
                     to="/room_no"
@@ -96,8 +96,8 @@ const Rooms = () => {
           </div>
           <div className="col-12 col-md-3">
             <div className="p-3">
-              <div className="card">
-                <div className="card-body bg-warning">
+              <div className="card shadow-lg mb-5 bg-warning rounded border-0">
+                <div className="card-body ">
                   <h5>Total Beds</h5>
                   <h1>{totalBeds}</h1>
                 </div>
@@ -106,8 +106,8 @@ const Rooms = () => {
           </div>
           <div className="col-12 col-md-3">
             <div className="p-3">
-              <div className="card">
-                <div className="card-body bg-danger text-dark">
+              <div className="card shadow-lg mb-5 bg-danger rounded border-0">
+                <div className="card-body  text-dark">
                   <h5>Vacated Beds</h5>
                   <h1>{vacatedBeds}</h1>
                 </div>
@@ -116,8 +116,8 @@ const Rooms = () => {
           </div>
           <div className="col-12 col-md-3">
             <div className="p-3">
-              <div className="card">
-                <div className="card-body bg-success text-white">
+              <div className="card shadow-lg mb-5 bg-success rounded border-0">
+                <div className="card-body  text-white">
                   <h5>Joined Beds</h5>
                   <h1>{joined}</h1>
                 </div>

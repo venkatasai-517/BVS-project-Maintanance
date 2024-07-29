@@ -262,12 +262,21 @@ function Gone() {
               const item = getData[key];
               return (
                 <div className="col-md-4" key={key}>
-                  <div className="card mb-4">
-                    {/* <img
-                    src={item.student_img}
-                    className="card-img-top fixed-size-img"
-                    alt="Room"
-                  /> */}
+                  <div className="card shadow-lg mb-5 bg-body rounded border-0">
+                    <img
+                      src={item.student_img}
+                      className="card-img-top fixed-size-img"
+                      style={{
+                        height: "30vh",
+                        width: "30vh",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        objectFit: "cover",
+                        margin: "auto",
+                      }}
+                      alt="Room"
+                    />
                     <div className="card-body">
                       {/* <p className="card-text text-bold">
                       a single-share room offers more privacy and personal
@@ -382,7 +391,7 @@ function Gone() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Add Customer
+                Add Tenent
               </h1>
               <button
                 type="button"
@@ -521,7 +530,7 @@ function Gone() {
                   />
                 </div> */}
                 <div className="col-md-4">
-                  <label className="form-label">Student_img</label>
+                  <label className="form-label">Tenent</label>
                   <input
                     type="file"
                     name="student_img"
@@ -696,7 +705,7 @@ function Gone() {
                 </div>
 
                 <div className="col-md-4">
-                  <label className="form-label">Student_img</label>
+                  <label className="form-label">Tenent</label>
                   <input
                     type="file"
                     name="student_img"
