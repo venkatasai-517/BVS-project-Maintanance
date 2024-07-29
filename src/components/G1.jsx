@@ -291,7 +291,9 @@ function Gone() {
                         <li className="list-group-item">
                           Mobile_Number:
                           <span className="badge bg-light text-dark">
-                            {item.mobile_num}
+                            <a href={`tel:${item.mobile_num}`}>
+                              {item.mobile_num}
+                            </a>
                           </span>
                         </li>
                         <li className="list-group-item">

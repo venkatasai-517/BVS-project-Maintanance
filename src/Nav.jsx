@@ -68,15 +68,6 @@ function Nav() {
         <Route path="/c2" element={<PrivateRoute component={C2} />} />
         <Route path="/c3" element={<PrivateRoute component={C3} />} />
         <Route path="/c4" element={<PrivateRoute component={C4} />} />
-        {/* <Route path="/app" element={<PrivateRoute component={App} />} />
-        <Route path="/second" element={<PrivateRoute component={Second} />} />
-        <Route path="/thrible" element={<PrivateRoute component={Thrible} />} />
-        <Route path="/four" element={<PrivateRoute component={Four} />} />
-        <Route
-          path="/studentdetails"
-          element={<PrivateRoute component={Student} />} */}
-
-        {/* Add other routes here */}
       </Routes>
       <Footer />
     </Router>
