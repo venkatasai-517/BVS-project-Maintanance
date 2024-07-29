@@ -299,12 +299,19 @@ function Afive() {
                         </li>
                         <li className="list-group-item">
                           Mobile Number:
-                          <a
-                            href="tel:item.mobile_num"
-                            className="badge bg-light text-dark"
-                          >
-                            {item.mobile_num}
-                          </a>
+                          <span className="badge bg-light text-dark">
+                            <a href={`tel:${item.mobile_num}`}>
+                              {item.mobile_num}
+                            </a>
+                            {" | "}
+                            <a
+                              href={`https://wa.me/${item.mobile_num}?text=Hello%20${item.name},%20I%20would%20like%20to%20discuss%20your%20room%20details%20Please%20Pay%20The%20Room%20Rent.`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              WhatsApp
+                            </a>
+                          </span>
                         </li>
                         <li className="list-group-item">
                           Room Number:
