@@ -521,7 +521,7 @@ function Gone() {
                   />
                 </div> */}
                 <div className="col-md-4">
-                  <label className="form-label">ROOM Img</label>
+                  <label className="form-label">Student_img</label>
                   <input
                     type="file"
                     name="student_img"
@@ -696,7 +696,7 @@ function Gone() {
                 </div>
 
                 <div className="col-md-4">
-                  <label className="form-label">ROOM Img</label>
+                  <label className="form-label">Student_img</label>
                   <input
                     type="file"
                     name="student_img"

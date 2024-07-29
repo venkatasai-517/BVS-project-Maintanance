@@ -4,7 +4,7 @@ import { isLogin } from "./helper";
 // eslint-disable-next-line react/prop-types
 const PublicRoute = ({ component: Component, ...rest }) => {
   if (isLogin()) {
-    return <Navigate to="/app" />;
+    return <Navigate to="/dashboard" />;
   }
   return <Component {...rest} />;
 };

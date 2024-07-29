@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-import "./Nav";
+import "./App";
 // import { Link,Route,Routes } from "react-router-dom";
 
 function Signup() {

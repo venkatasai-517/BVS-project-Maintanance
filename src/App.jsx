@@ -1,16 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
-// import App from "./App";
-// import Second from "./Double";
-// import Thrible from "./Thrible";
-// import Four from "./Four";
-// import Student from "./Studentdetails";
-import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
-import Dashboard from "./components/Dashboard";
-import Room_no from "./components/Room_no";
-import G1 from "./components/G1";
+import Signup from "./Signup.jsx";
+import Login from "./Login.jsx";
+
+import PrivateRoute from "./PrivateRoute.jsx";
+import PublicRoute from "./PublicRoute.jsx";
+import Dashboard from "./components/Dashboard.jsx";
+import Room_no from "./components/Room_no.jsx";
+import G1 from "./components/G1.jsx";
 import G2 from "./components/G2.jsx";
 import A1 from "./components/firsfloor/A1.jsx";
 import A2 from "./components/firsfloor/A2.jsx";
