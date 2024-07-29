@@ -45,7 +45,7 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-4 ms-5">
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <a
                 id="dashboard"
                 className={`nav-link badge ${
@@ -59,7 +59,7 @@ const Header = () => {
               >
                 DASHBOARD
               </a>
-            </li> */}
+            </li>
             <li className="nav-item">
               <a
                 id="rooms"
@@ -69,83 +69,12 @@ const Header = () => {
                     : "text-white"
                 }`}
                 aria-current="page"
-                href="/rooms"
+                href="/room_no"
                 onClick={() => handleSetActive("rooms")}
               >
                 ROOMS
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a
-                id="single-share"
-                className={`nav-link badge ${
-                  activeItem === "single-share"
-                    ? "active bg-secondary text-white"
-                    : "text-white"
-                }`}
-                aria-current="page"
-                href="/app"
-                onClick={() => handleSetActive("single-share")}
-              >
-                SINGLE SHARE
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                id="double-share"
-                className={`nav-link badge ${
-                  activeItem === "double-share"
-                    ? "active bg-secondary text-white"
-                    : "text-white"
-                }`}
-                href="/second"
-                onClick={() => handleSetActive("double-share")}
-              >
-                DOUBLE SHARE
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                id="thrible-share"
-                className={`nav-link badge ${
-                  activeItem === "thrible-share"
-                    ? "active bg-secondary text-white"
-                    : "text-white"
-                }`}
-                href="/thrible"
-                onClick={() => handleSetActive("thrible-share")}
-              >
-                THRIBLE SHARE
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                id="four-share"
-                className={`nav-link badge ${
-                  activeItem === "four-share"
-                    ? "active bg-secondary text-white"
-                    : "text-white"
-                }`}
-                href="/four"
-                onClick={() => handleSetActive("four-share")}
-              >
-                FOUR SHARE
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                id="student-details"
-                className={`nav-link badge ${
-                  activeItem === "student-details"
-                    ? "active bg-secondary text-white"
-                    : "text-white"
-                }`}
-                href="/studentdetails"
-                onClick={() => handleSetActive("student-details")}
-              >
-                STUDENT DETAILS
-              </a>
-            </li> */}
           </ul>
           <form className="d-flex" role="search">
             <button

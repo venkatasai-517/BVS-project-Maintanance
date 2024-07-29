@@ -12,7 +12,6 @@ import Dashboard from "./components/Dashboard";
 import Room_no from "./components/Room_no";
 import G1 from "./components/G1";
 import G2 from "./components/G2.jsx";
-import Rooms from "./Rooms";
 import A1 from "./components/firsfloor/A1.jsx";
 import A2 from "./components/firsfloor/A2.jsx";
 import A3 from "./components/firsfloor/A3.jsx";
@@ -46,7 +45,6 @@ function Nav() {
           path="/dashboard"
           element={<PrivateRoute component={Dashboard} />}
         />
-        <Route path="/rooms" element={<PrivateRoute component={Rooms} />} />
         <Route path="/room_no" element={<PrivateRoute component={Room_no} />} />
         <Route path="/g1" element={<PrivateRoute component={G1} />} />
 

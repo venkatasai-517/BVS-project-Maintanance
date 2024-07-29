@@ -29,7 +29,7 @@ function Login() {
       console.log("Logged in successfully");
       login();
       setTimeout(() => {
-        navigate("/room_no"); // Navigate to the dashboard page after a delay
+        navigate("/dashboard"); // Navigate to the dashboard page after a delay
       }, 2000); // Adjust delay time as needed
     } catch (error) {
       setLoginError(error.message);
