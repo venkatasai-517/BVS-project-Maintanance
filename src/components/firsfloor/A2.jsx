@@ -300,12 +300,12 @@ function Atwo() {
                         <li className="list-group-item">
                           Mobile Number:
                           <span className="badge bg-light text-dark">
-                            <a href={`tel:${item.mobile_num}`}>
-                              {item.mobile_num}
+                            <a href={`tel:+91${item.mobile_num}`}>
+                              +91 {item.mobile_num}
                             </a>
                             {" | "}
                             <a
-                              href={`https://wa.me/${item.mobile_num}?text=Hello%20${item.name},%20I%20would%20like%20to%20discuss%20your%20room%20details%20Please%20Pay%20The%20Room%20Rent.`}
+                              href={`https://wa.me/91${item.mobile_num}?text=Hello%20${item.name},%20I%20would%20like%20to%20discuss%20your%20room%20details.%20Please%20pay%20the%20room%20rent.`}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -313,6 +313,7 @@ function Atwo() {
                             </a>
                           </span>
                         </li>
+
                         <li className="list-group-item">
                           Room Number:
                           <span className="badge bg-primary">
@@ -391,7 +392,7 @@ function Atwo() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-            Add Tenent
+                Add Tenent
               </h1>
               <button
                 type="button"

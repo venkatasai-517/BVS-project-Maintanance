@@ -225,380 +225,209 @@ function Gone() {
   });
 
   return (
-    <div className="container mt-3">
-      <div className="row justify-content-end p-4">
-        <div className="col-auto">
-          <button
-            type="button"
-            className="btn badge text-bg-primary me-2"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Add Tenent
-          </button>
+    <div style={{ backgroundImage: `url(${"/image/back.jpg"})` }}>
+      <div className="container mt-3">
+        <div className="row justify-content-end p-4">
+          <div className="col-auto">
+            <button
+              type="button"
+              className="btn badge text-bg-primary me-2"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Add Tenent
+            </button>
+          </div>
+          <div className="col-auto">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => navigate(-1)}
+            >
+              Back
+            </button>
+          </div>
         </div>
-        <div className="col-auto">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={() => navigate(-1)}
-          >
-            Back
-          </button>
+        <div className="col-6 mb-4">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search"
+            onChange={handleFilter}
+          />
         </div>
-      </div>
-      <div className="col-6 mb-4">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search"
-          onChange={handleFilter}
-        />
-      </div>
-      <div className="container">
-        <div className="row">
-          {filteredData &&
-            filteredData.map((key) => {
-              const item = getData[key];
-              return (
-                <div className="col-md-4" key={key}>
-                  <div className="card shadow-lg mb-5 bg-body rounded border-0">
-                    <img
-                      src={item.student_img}
-                      className="card-img-top fixed-size-img"
-                      style={{
-                        height: "30vh",
-                        width: "30vh",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        objectFit: "cover",
-                        margin: "auto",
-                      }}
-                      alt="Room"
-                    />
-                    <div className="card-body">
-                      {/* <p className="card-text text-bold">
+        <div className="container">
+          <div className="row">
+            {filteredData &&
+              filteredData.map((key) => {
+                const item = getData[key];
+                return (
+                  <div className="col-md-4" key={key}>
+                    <div className="card shadow-lg mb-5 bg-body rounded border-0">
+                      <img
+                        src={item.student_img}
+                        className="card-img-top fixed-size-img"
+                        style={{
+                          height: "30vh",
+                          width: "30vh",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          objectFit: "cover",
+                          margin: "auto",
+                        }}
+                        alt="Room"
+                      />
+                      <div className="card-body">
+                        {/* <p className="card-text text-bold">
                       a single-share room offers more privacy and personal
                       space. It typically includes a single bed, desk, and
                       storage for personal belongings.
                     </p> */}
 
-                      <ul className="list-group list-group-flush">
-                        <li className="list-group-item">
-                          Tenent_Name:
-                          <span className="badge bg-secondary">
-                            {item.name}
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Adhar_Number:
-                          <span className="badge bg-info">
-                            {item.adhar_num}
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Mobile_Number:
-                          <span className="badge bg-light text-dark">
-                            <a href={`tel:${item.mobile_num}`}>
-                              {item.mobile_num}
-                            </a>
-                            {" | "}
-                            <a
-                              href={`https://wa.me/${item.mobile_num}?text=Hello%20${item.name},%20I%20would%20like%20to%20discuss%20your%20room%20details%20Please%20Pay%20The%20Room%20Rent.`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              WhatsApp
-                            </a>
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Room Number:
-                          <span className="badge bg-primary">
-                            {item.room_number}
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Status:
-                          <span
-                            className={`badge ${
-                              item.status === "Joined"
-                                ? "text-bg-success"
-                                : item.status === "Vacated"
-                                ? "text-bg-danger"
-                                : item.status === "Under Maintenance"
-                                ? "text-bg-warning"
-                                : ""
-                            }`}
-                          >
-                            {item.status}
-                          </span>
-                        </li>
+                        <ul className="list-group list-group-flush">
+                          <li className="list-group-item">
+                            Tenent_Name:
+                            <span className="badge bg-secondary">
+                              {item.name}
+                            </span>
+                          </li>
+                          <li className="list-group-item">
+                            Adhar_Number:
+                            <span className="badge bg-info">
+                              {item.adhar_num}
+                            </span>
+                          </li>
+                          <li className="list-group-item">
+                            Mobile Number:
+                            <span className="badge bg-light text-dark">
+                              <a href={`tel:+91${item.mobile_num}`}>
+                                +91 {item.mobile_num}
+                              </a>
+                              {" | "}
+                              <a
+                                href={`https://wa.me/91${item.mobile_num}?text=Hello%20${item.name},%20I%20would%20like%20to%20discuss%20your%20room%20details.%20Please%20pay%20the%20room%20rent.`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                WhatsApp
+                              </a>
+                            </span>
+                          </li>
 
-                        <li className="list-group-item">
-                          Floor:
-                          <span className="badge bg-warning">
-                            {item.floor_number}
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Price:
-                          <span className="badge bg-primary">
-                            ${item.price}
-                          </span>
-                        </li>
-                        <li className="list-group-item">
-                          Joining Date:
-                          <span className="badge bg-info">{item.date}</span>
-                        </li>
-                        <li className="list-group-item">
-                          Due Date:
-                          <span className={badgeClass}>{item.due_date}</span>
-                        </li>
-                      </ul>
-                      <div className="card-body">
-                        <button
-                          className="btn badge text-bg-primary ms-2"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal1"
-                          onClick={() => handleEditButtonClick(key)}
-                        >
-                          <i className="fa-solid fa-pen-to-square"></i>
-                        </button>
-                        <button
-                          className="btn badge text-bg-danger "
-                          onClick={() => handleDeleteButtonClick(key)}
-                        >
-                          <i className="fa-solid fa-trash"></i>
-                        </button>
+                          <li className="list-group-item">
+                            Room Number:
+                            <span className="badge bg-primary">
+                              {item.room_number}
+                            </span>
+                          </li>
+                          <li className="list-group-item">
+                            Status:
+                            <span
+                              className={`badge ${
+                                item.status === "Joined"
+                                  ? "text-bg-success"
+                                  : item.status === "Vacated"
+                                  ? "text-bg-danger"
+                                  : item.status === "Under Maintenance"
+                                  ? "text-bg-warning"
+                                  : ""
+                              }`}
+                            >
+                              {item.status}
+                            </span>
+                          </li>
+
+                          <li className="list-group-item">
+                            Floor:
+                            <span className="badge bg-warning">
+                              {item.floor_number}
+                            </span>
+                          </li>
+                          <li className="list-group-item">
+                            Price:
+                            <span className="badge bg-primary">
+                              ${item.price}
+                            </span>
+                          </li>
+                          <li className="list-group-item">
+                            Joining Date:
+                            <span className="badge bg-info">{item.date}</span>
+                          </li>
+                          <li className="list-group-item">
+                            Due Date:
+                            <span className={badgeClass}>{item.due_date}</span>
+                          </li>
+                        </ul>
+                        <div className="card-body">
+                          <button
+                            className="btn badge text-bg-primary ms-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1"
+                            onClick={() => handleEditButtonClick(key)}
+                          >
+                            <i className="fa-solid fa-pen-to-square"></i>
+                          </button>
+                          <button
+                            className="btn badge text-bg-danger "
+                            onClick={() => handleDeleteButtonClick(key)}
+                          >
+                            <i className="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
-      </div>
 
-      <div
-        className="modal fade"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Add Tenent
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <form onSubmit={submitHandler}>
-                <div className="col-md-4">
-                  <label className="form-label">Date</label>
-                  <input
-                    type="date"
-                    className="form-control"
-                    name="date"
-                    value={data1.date}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Student_name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    value={data1.name}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Adhar_num</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="adhar_num"
-                    name="adhar_num"
-                    value={data1.adhar_num}
-                    onChange={changeHandler}
-                    required
-                  />
-                  {error.adhar && (
-                    <span className="text-danger">{error.adhar}</span>
-                  )}
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Mobile_num</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="mobile_num"
-                    value={data1.mobile_num}
-                    onChange={changeHandler}
-                    required
-                  />
-                  {error.mobile && (
-                    <span className="text-danger">{error.mobile}</span>
-                  )}
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Status</label>
-                  <select
-                    className="form-select"
-                    name="status"
-                    value={data1.status}
-                    onChange={changeHandler}
-                    required
-                  >
-                    <option value="" disabled>
-                      Choose...
-                    </option>
-                    <option className="badge text-bg-success" value="Joined">
-                      Joined
-                    </option>
-                    <option className="badge text-bg-danger" value="Vacated">
-                      Vacated
-                    </option>
-                    <option
-                      className="badge text-bg-warning"
-                      value="Under Maintenance"
-                    >
-                      Under Maintenance
-                    </option>
-                  </select>
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Room Number</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="room_number"
-                    value={data1.room_number}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Floor</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="floor_number"
-                    value={data1.floor_number}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="col-md-4">
-                  <label className="form-label">Price</label>
-                  <div className="input-group">
-                    <span className="input-group-text">$</span>
+        <div
+          className="modal fade"
+          id="exampleModal"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                  Add Tenent
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <form onSubmit={submitHandler}>
+                  <div className="col-md-4">
+                    <label className="form-label">Date</label>
                     <input
-                      type="number"
+                      type="date"
                       className="form-control"
-                      name="price"
-                      value={data1.price}
+                      name="date"
+                      value={data1.date}
                       onChange={changeHandler}
-                      placeholder="0.00"
-                      step="0.01"
-                      min="0"
                       required
                     />
                   </div>
-                </div>
-                {/* <div className="col-md-4">
-                  <label className="form-label">Git Colab</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="student_img"
-                    value={data1.student_img}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div> */}
-                <div className="col-md-4">
-                  <label className="form-label">Tenent</label>
-                  <input
-                    type="file"
-                    name="student_img"
-                    onChange={(e) => setImg(e.target.files[0])}
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="modal fade"
-        id="exampleModal1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Edit PG Students Record
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <form onSubmit={submitEditHandler}>
-                <div className="mb-3">
-                  <label htmlFor="date" className="form-label">
-                    Date
-                  </label>
-                  <input
-                    type="date"
-                    className="form-control"
-                    id="date"
-                    name="date"
-                    value={data1.date}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    Student Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    value={data1.name}
-                    onChange={changeHandler}
-                    required
-                  />
-                </div>
-                <div className="row">
                   <div className="col-md-4">
-                    <label htmlFor="adhar_num" className="form-label">
-                      Aadhaar Number
-                    </label>
+                    <label className="form-label">Student_name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      value={data1.name}
+                      onChange={changeHandler}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label className="form-label">Adhar_num</label>
                     <input
                       type="text"
                       className="form-control"
@@ -613,13 +442,10 @@ function Gone() {
                     )}
                   </div>
                   <div className="col-md-4">
-                    <label htmlFor="mobile_num" className="form-label">
-                      Mobile Number
-                    </label>
+                    <label className="form-label">Mobile_num</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="mobile_num"
                       name="mobile_num"
                       value={data1.mobile_num}
                       onChange={changeHandler}
@@ -630,12 +456,9 @@ function Gone() {
                     )}
                   </div>
                   <div className="col-md-4">
-                    <label htmlFor="status" className="form-label">
-                      Status
-                    </label>
+                    <label className="form-label">Status</label>
                     <select
                       className="form-select"
-                      id="status"
                       name="status"
                       value={data1.status}
                       onChange={changeHandler}
@@ -644,30 +467,25 @@ function Gone() {
                       <option value="" disabled>
                         Choose...
                       </option>
-                      <option value="Joined" className="badge text-bg-success">
+                      <option className="badge text-bg-success" value="Joined">
                         Joined
                       </option>
-                      <option value="Vacated" className="badge text-bg-danger">
+                      <option className="badge text-bg-danger" value="Vacated">
                         Vacated
                       </option>
                       <option
-                        value="Under Maintenance"
                         className="badge text-bg-warning"
+                        value="Under Maintenance"
                       >
                         Under Maintenance
                       </option>
                     </select>
                   </div>
-                </div>
-                <div className="row">
                   <div className="col-md-4">
-                    <label htmlFor="room_number" className="form-label">
-                      Room Number
-                    </label>
+                    <label className="form-label">Room Number</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="room_number"
                       name="room_number"
                       value={data1.room_number}
                       onChange={changeHandler}
@@ -675,13 +493,10 @@ function Gone() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label htmlFor="floor_number" className="form-label">
-                      Floor Number
-                    </label>
+                    <label className="form-label">Floor</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="floor_number"
                       name="floor_number"
                       value={data1.floor_number}
                       onChange={changeHandler}
@@ -689,34 +504,228 @@ function Gone() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label htmlFor="price" className="form-label">
-                      Price
+                    <label className="form-label">Price</label>
+                    <div className="input-group">
+                      <span className="input-group-text">$</span>
+                      <input
+                        type="number"
+                        className="form-control"
+                        name="price"
+                        value={data1.price}
+                        onChange={changeHandler}
+                        placeholder="0.00"
+                        step="0.01"
+                        min="0"
+                        required
+                      />
+                    </div>
+                  </div>
+                  {/* <div className="col-md-4">
+                  <label className="form-label">Git Colab</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="student_img"
+                    value={data1.student_img}
+                    onChange={changeHandler}
+                    required
+                  />
+                </div> */}
+                  <div className="col-md-4">
+                    <label className="form-label">Tenent</label>
+                    <input
+                      type="file"
+                      name="student_img"
+                      onChange={(e) => setImg(e.target.files[0])}
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="exampleModal1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  Edit PG Students Record
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <form onSubmit={submitEditHandler}>
+                  <div className="mb-3">
+                    <label htmlFor="date" className="form-label">
+                      Date
                     </label>
                     <input
-                      type="number"
+                      type="date"
                       className="form-control"
-                      id="price"
-                      name="price"
-                      value={data1.price}
+                      id="date"
+                      name="date"
+                      value={data1.date}
                       onChange={changeHandler}
                       required
                     />
                   </div>
-                </div>
+                  <div className="mb-3">
+                    <label htmlFor="name" className="form-label">
+                      Student Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      name="name"
+                      value={data1.name}
+                      onChange={changeHandler}
+                      required
+                    />
+                  </div>
+                  <div className="row">
+                    <div className="col-md-4">
+                      <label htmlFor="adhar_num" className="form-label">
+                        Aadhaar Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="adhar_num"
+                        name="adhar_num"
+                        value={data1.adhar_num}
+                        onChange={changeHandler}
+                        required
+                      />
+                      {error.adhar && (
+                        <span className="text-danger">{error.adhar}</span>
+                      )}
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="mobile_num" className="form-label">
+                        Mobile Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="mobile_num"
+                        name="mobile_num"
+                        value={data1.mobile_num}
+                        onChange={changeHandler}
+                        required
+                      />
+                      {error.mobile && (
+                        <span className="text-danger">{error.mobile}</span>
+                      )}
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="status" className="form-label">
+                        Status
+                      </label>
+                      <select
+                        className="form-select"
+                        id="status"
+                        name="status"
+                        value={data1.status}
+                        onChange={changeHandler}
+                        required
+                      >
+                        <option value="" disabled>
+                          Choose...
+                        </option>
+                        <option
+                          value="Joined"
+                          className="badge text-bg-success"
+                        >
+                          Joined
+                        </option>
+                        <option
+                          value="Vacated"
+                          className="badge text-bg-danger"
+                        >
+                          Vacated
+                        </option>
+                        <option
+                          value="Under Maintenance"
+                          className="badge text-bg-warning"
+                        >
+                          Under Maintenance
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-4">
+                      <label htmlFor="room_number" className="form-label">
+                        Room Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="room_number"
+                        name="room_number"
+                        value={data1.room_number}
+                        onChange={changeHandler}
+                        required
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="floor_number" className="form-label">
+                        Floor Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="floor_number"
+                        name="floor_number"
+                        value={data1.floor_number}
+                        onChange={changeHandler}
+                        required
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="price" className="form-label">
+                        Price
+                      </label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        id="price"
+                        name="price"
+                        value={data1.price}
+                        onChange={changeHandler}
+                        required
+                      />
+                    </div>
+                  </div>
 
-                <div className="col-md-4">
-                  <label className="form-label">Tenent</label>
-                  <input
-                    type="file"
-                    name="student_img"
-                    onChange={(e) => setImg(e.target.files[0])}
-                  />
-                </div>
+                  <div className="col-md-4">
+                    <label className="form-label">Tenent</label>
+                    <input
+                      type="file"
+                      name="student_img"
+                      onChange={(e) => setImg(e.target.files[0])}
+                    />
+                  </div>
 
-                <button type="submit" className="btn btn-primary">
-                  Save Changes
-                </button>
-              </form>
+                  <button type="submit" className="btn btn-primary">
+                    Save Changes
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
